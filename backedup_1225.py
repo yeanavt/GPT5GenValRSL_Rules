@@ -655,6 +655,7 @@ class JetBrainsRuleGenerator:
         4. Refer to the provided issue description and example code snippets if any semantically and syntactically
         5. Adheres to the existing built-in functions' signature, parameters, and return value 
         6. Utimately a newly generated rule should support the usage constraints described by the topic, issue description, and example. 
+        7. If the generated RSL rule is too large, split it into multiple independent RSL rules so that each rule examines only one metadata misuse pattern. 
 
         Output ONLY the RSL rule code."""
 
@@ -737,10 +738,10 @@ class JetBrainsRuleGenerator:
         instructions = f"""
       
         Provide the following information:
-        1. What constraints this rule detects
-        2. How and what the the existing builtin functions are used
-        3. Detection logic step by step
-        4. Answer if the rule necessarily address a bug that must be fixed for what kind of reasons"""
+        1. What constraints this rule detects or each rule detects if there are multiple generated rules
+        2. How and what the the existing builtin functions are used per generated rule
+        3. Detection logic step by step per rule
+        4. Answer if each generated rule necessarily address a bug that must be fixed for what kind of reasons"""
        
         messages = [
                 {"role": "system", "content": prompt}
@@ -974,7 +975,7 @@ class JetBrainsRuleGenerator:
         topic: str,
         annotations: List[str]
     ) -> dict:
-        """Use GPT-4 (temperature=0) to validate if page content is relevant."""
+        """Use GPT-(5) to validate if page content is relevant."""
         annotations_str = ', '.join(annotations) if annotations else "None found"
         
         prompt = f"""Analyze if this web page is relevant to the Java framework issue.
@@ -1351,7 +1352,7 @@ Return URLs with brief descriptions."""
     1. Extract the function names used in the generated rule.
     2. Check if a function name in the generated rule is seen in the builtin_functions list.
     3. If a function name in the generated rule not seen in the builtin_functions list, tell me the function name.
-    4. If the function name is exists(), msg() or assert(), do not include it in the list."""
+    """
 
         messages = [
             {"role": "developer", "content": context}
@@ -1408,10 +1409,10 @@ Return URLs with brief descriptions."""
     From the generated rule, list any non-existing function name."""
 
         instructions = """You are an expert in metadata-related bugs in Java applications. 
-                Validate the GPT-5-generated rule based on the framework, topic, issue description, and the 3rd-party located web pages's content. 
+                Validate the GPT-5-generated rule based on the framework, topic, issue description, and the given example. 
                 If the rule is correct, submit 'Yes.' as the result. If the rule is incorrect, submit 'No' with a brief explanation.
-                1. Your validation result should not be influenced  by the non-existing functions in the rule. 
-                2  Indicate "Yes" or "No" first in terms of the generated rule's correctness. 
+                1. Your validation result should not be influenced  by the none-existing functions in the rule if any. 
+                2  Indicate "Yes" or "No" first in terms of the generated rule's correctness with respect to the given example. 
                 3. If your answer is "No", briefly explain why the rule is incorrect."""
 
         messages = [
@@ -1470,22 +1471,22 @@ Return URLs with brief descriptions."""
     {fallback_web_pages}
 
     === {builtin_functions_list} ===
-    Check if the rule uses only these valid functions. Report any non-existing functions following these steps:
+    Check if the rule uses only these valid functions. Report any none-existing functions following these steps:
     1. Extract the function names with parentheses, (), from the generated rule.
     2. Check if the function name is seen in the builtin_functions list.
     3. If the function name is not seen, report it.
-    4. Exclude msg(), assert(), and exists() function to report as they are valid and not new.
+    
 
-    From the generated rule, simply list all non-existing functions that satisfy the statements above."""
+    From each generated rule, simply list all none-existing functions that satisfy the statements above."""
 
         instructions = """You are an expert in metadata-related bugs in Java applications. 
-    Validate the GPT-5-generated rule based on the topic, content, and the 3rd-party located web pages's content. 
+    Validate the GPT-5-generated rule based on the topic, content, and the given example. 
     If the rule is correct, submit 'Yes.' as the result. If the rule is incorrect, submit 'No' with a brief explanation.
     Your evaluation should not consider if there are any non-existing functions in the rule yet.
     To answer "Correct," the generated rule should be coherent with the topic, issue description, 
     rule description and located web pages's content. Your validation result should not be influenced
     by the non-existing functions in the rule. Indicate "Yes" or "No" first, then report 
-    any non-existing functions name: example_new_function_name()."""
+    any none-existing functions name: example_new_function_name()."""
 
         messages = [
             {"role": "developer", "content": context}
