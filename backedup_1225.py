@@ -655,7 +655,7 @@ class JetBrainsRuleGenerator:
         4. Refer to the provided issue description and example code snippets if any semantically and syntactically
         5. Adheres to the existing built-in functions' signature, parameters, and return value 
         6. Utimately a newly generated rule should support the usage constraints described by the topic, issue description, and example. 
-        7. If the generated RSL rule is too large, split it into multiple independent RSL rules so that each rule examines only one metadata misuse pattern. 
+        7. If the generated RSL rule is too large and if you think generated rule is too large and these rules are not dependent of each other, split it into multiple independent RSL rules so that each rule examines only one metadata misuse pattern. 
 
         Output ONLY the RSL rule code."""
 
