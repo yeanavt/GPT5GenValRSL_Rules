@@ -11,11 +11,7 @@ This script processes a CSV file containing JetBrains inspection data and:
 6. Evaluates the generated rules using GPT-5.2 as a judge
 
 Models Used (per user request):
-- Rule Generation: GPT-4 (gpt-4) with temperature=0
-- Rule Description: GPT-4 (gpt-4) with temperature=0
-- Web Search: GPT-5 with web_search tool, reasoning effort: high
-- URL Validation: GPT-4 with temperature=0 (for borderline cases)
-- Evaluation: GPT-5.2 (gpt-5.2-thinking for best reasoning)
+GPT-5
 
 Supported Frameworks (27):
  # 'jpa-and-kotlin': [
@@ -278,12 +274,7 @@ FALLBACK_WEBPAGES = {
 # FILE PATHS CONFIGURATION
 # =============================================================================
 
-# INPUT_CSV_PATH = r"C:\Users\yeana\Downloads\mecheck-spencer-12.03\mecheck-artifact-fse2025\detecting-metadata-bugs\language-engine\language-engine\GenVal\sample_input.csv"
-# OUTPUT_CSV_PATH = r"C:\Users\yeana\Downloads\mecheck-spencer-12.03\mecheck-artifact-fse2025\detecting-metadata-bugs\language-engine\language-engine\GenVal\sample_output_with_rules.csv"
-# SAMPLE_INPUT_CSV_PATH = r"C:\Users\yeana\Downloads\mecheck-spencer-12.03\mecheck-artifact-fse2025\detecting-metadata-bugs\language-engine\language-engine\GenVal\sample_input.csv"
-# BUILTINS_JSON_PATH = r"C:\Users\yeana\Downloads\mecheck-spencer-12.03\mecheck-artifact-fse2025\detecting-metadata-bugs\language-engine\language-engine\GenVal\builtinfs.json"
-# ANNOTATIONS_JSON_PATH = r"C:\Users\yeana\Downloads\mecheck-spencer-12.03\mecheck-artifact-fse2025\detecting-metadata-bugs\language-engine\language-engine\GenVal\extracted_annotations.json"
-# EXISTING_RULES_PATH_WINDOWS = r"C:\Users\yeana\Downloads\mecheck-spencer-12.03\mecheck-artifact-fse2025\detecting-metadata-bugs\language-engine\language-engine\artifact-submission\rules"
+
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
