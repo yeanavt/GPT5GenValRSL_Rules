@@ -1,6 +1,6 @@
 0. python version should be 3.10.x~3.12.x  
-1. Download, or use git clone  
-2. Create a folder for this pipeline with your preferred name such as "GenVal."
+1. Create a folder for this pipeline with your preferred name such as "GenVal."
+2. Simply download the python program and other files there or gitclone there
 3. Open with git bash and go to the folder you created
 4. Activate virtual Environment there
 
