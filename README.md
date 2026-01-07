@@ -20,3 +20,9 @@ vim .env
 7. The content should be in a text file
 ```
 OPENAI_API_KEY=your_openai_key
+```
+
+8. To run:
+```
+python backedup_1225.py
+```
