@@ -1,0 +1,9 @@
+requests
+beautifulsoup4
+lxml
+selenium>=4.10
+pandas
+openai>=1.0.0
+python-dotenv
+jupyter
+ipykernel
