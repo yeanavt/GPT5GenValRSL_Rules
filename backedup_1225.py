@@ -278,9 +278,13 @@ FALLBACK_WEBPAGES = {
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
-INPUT_CSV_PATH = os.path.join(BASE_DIR, "c_input.csv")  # Default to c_input.csv if found
-OUTPUT_CSV_PATH = os.path.join(BASE_DIR, "sample_output_with_rules.csv")
-SAMPLE_INPUT_CSV_PATH = os.path.join(BASE_DIR, "sample_input.csv")
+#input and output file name could be customized here
+#To replicate the output with four rows I used as a sample to test this updated pipeline
+#please download the input file: https://drive.google.com/drive/u/2/folders/1BIanT-Pu3icp7eyx8UXo6ThHiLHtOss_
+
+INPUT_CSV_PATH = os.path.join(BASE_DIR, "4new_sample_input_run011626_byXX.csv")  
+OUTPUT_CSV_PATH = os.path.join(BASE_DIR, "sample_output_rundatebyXX.csv")
+#SAMPLE_INPUT_CSV_PATH = os.path.join(BASE_DIR, "sample_input.csv")
 BUILTINS_JSON_PATH = os.path.join(BASE_DIR, "builtinfs.json")
 ANNOTATIONS_JSON_PATH = os.path.join(BASE_DIR, "extracted_annotations.json")
 URL_REPORT_JSON_PATH = os.path.join(BASE_DIR, "url_report.json")
