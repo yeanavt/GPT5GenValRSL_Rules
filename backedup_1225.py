@@ -1410,11 +1410,13 @@ Return URLs with brief descriptions."""
     From the generated rule, list any non-existing function name."""
 
         instructions = """You are an expert in metadata-related bugs in Java applications. 
-                Validate the GPT-5-generated rule based on the framework, topic, issue description, and the given example. 
-                If the rule is correct, submit 'Yes.' as the result. If the rule is incorrect, submit 'No' with a brief explanation.
+                Validate each GPT-5-generated rule based on the framework, topic, issue description, and the given example. 
+                If each generated rule is correct, submit 'Yes.' as the result. If each generated rule is incorrect, submit 'No' with a brief explanation for each rule.
                 1. Your validation result should not be influenced  by the none-existing functions in the rule if any. 
-                2  Indicate "Yes" or "No" first in terms of the generated rule's correctness with respect to the given example. 
-                3. If your answer is "No", briefly explain why the rule is incorrect."""
+                2  Indicate "Yes" or "No" first in terms of each generated rule's correctness with respect to the given example. 
+                3. If your answer is "No", briefly explain why the rule is incorrect.
+                4. Again, if the number of generated rule is more than one, you should validate each rule separately."""
+
 
         messages = [
                 {"role": "developer", "content": context}
