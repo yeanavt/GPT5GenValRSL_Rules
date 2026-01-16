@@ -1,0 +1,319 @@
+{
+    "builtinfs": [
+        {
+            "name": "callExists()",
+            "category": "code",
+            "purpose": "Check whether a specific call exists",
+            "signature": "BooleanItem callExists(ClassItem c, String callerClass, String invocation)",
+            "return": "BooleanItem"
+        },
+        {
+            "name": "classExists()",
+            "category": "code",
+            "purpose": "Check whether a class exists",
+            "signature": "BooleanItem classExists(String classFQN)",
+            "return": "BooleanItem"
+        },
+        {
+            "name": "getArg()",
+            "category": "code",
+            "purpose": "Get an argument from a call/method",
+            "signature": "List<StringItem> getArg(ClassItem c, String callerClass, String methodName, int argIdx) | List<StringItem> getArg(ClassItem c, String constructorInvocation, Integer argIdx)",
+            "return": "List<StringItem>"
+        },
+        {
+            "name": "getClasses()",
+            "category": "code",
+            "purpose": "Get a collection of classes",
+            "signature": "List<ClassItem> getClasses()",
+            "return": "List<ClassItem>"
+        },
+        {
+            "name": "getConstructors()",
+            "category": "code",
+            "purpose": "Get constructors of a class",
+            "signature": "List<MethodItem> getConstructors(ClassItem c)",
+            "return": "List<MethodItem>"
+        },
+        {
+            "name": "getFamily()",
+            "category": "code",
+            "purpose": "Get type hierarchy/family information",
+            "signature": "List<ClassItem> getFamily(ClassItem currentClass)",
+            "return": "List<ClassItem>"
+        },
+        {
+            "name": "getFields()",
+            "category": "code",
+            "purpose": "Get fields of a class",
+            "signature": "List<FieldItem> getFields(ClassItem c)",
+            "return": "List<FieldItem>"
+        },
+        {
+            "name": "getFQN()",
+            "category": "code",
+            "purpose": "Get fully qualified name",
+            "signature": "StringItem getFQN(ClassItem c)",
+            "return": "StringItem"
+        },
+        {
+            "name": "getMethods()",
+            "category": "code",
+            "purpose": "Get methods of a class",
+            "signature": "List<MethodItem> getMethods(ClassItem c)",
+            "return": "List<MethodItem>"
+        },
+        {
+            "name": "getName()",
+            "category": "code",
+            "purpose": "Get the simple name/identifier",
+            "signature": "StringItem getName(JItem|XMLItem item)",
+            "return": "StringItem"
+        },
+        {
+            "name": "getReturnType()",
+            "category": "code",
+            "purpose": "Get a method's return type",
+            "signature": "StringItem getReturnType(MethodItem methodItem)",
+            "return": "StringItem"
+        },
+        {
+            "name": "getType()",
+            "category": "code",
+            "purpose": "Get type information",
+            "signature": "StringItem getType(JItem|XMLItem item)",
+            "return": "StringItem"
+        },
+        {
+            "name": "hasField()",
+            "category": "code",
+            "purpose": "Check whether a class has a specific field",
+            "signature": "BooleanItem hasField(ClassItem c, String propertyName)",
+            "return": "BooleanItem"
+        },
+        {
+            "name": "hasParam()",
+            "category": "code",
+            "purpose": "Check whether a method has a specific parameter",
+            "signature": "BooleanItem hasParam(MethodItem m, String name)",
+            "return": "BooleanItem"
+        },
+        {
+            "name": "hasParamType()",
+            "category": "code",
+            "purpose": "Check whether a method has a parameter of a given type",
+            "signature": "BooleanItem hasParamType(MethodItem m, String type)",
+            "return": "BooleanItem"
+        },
+        {
+            "name": "indexInBound()",
+            "category": "code",
+            "purpose": "Check whether an index is within bounds",
+            "signature": "BooleanItem indexInBound(MethodItem constructorItem, int index)",
+            "return": "BooleanItem"
+        },
+        {
+            "name": "isIterable()",
+            "category": "code",
+            "purpose": "Check whether a type is iterable",
+            "signature": "BooleanItem isIterable(StringItem returnType)",
+            "return": "BooleanItem"
+        },
+        {
+            "name": "isLibraryClass()",
+            "category": "code",
+            "purpose": "Check whether the class comes from libraries",
+            "signature": "BooleanItem isLibraryClass(String classFQN)",
+            "return": "BooleanItem"
+        },
+        {
+            "name": "isUniqueSN()",
+            "category": "code",
+            "purpose": "Check whether the simple name is unique",
+            "signature": "BooleanItem isUniqueSN(String classSN)",
+            "return": "BooleanItem"
+        },
+        {
+            "name": "locateClassSN()",
+            "category": "code",
+            "purpose": "Locate a class by simple name",
+            "signature": "ClassItem locateClassSN(String classSN)",
+            "return": "ClassItem"
+        },
+        {
+            "name": "locateClassFQN()",
+            "category": "code",
+            "purpose": "Locate a class by fully qualified name",
+            "signature": "ClassItem locateClassFQN(String classFQN)",
+            "return": "ClassItem"
+        },
+        {
+            "name": "getAnnoAttr()",
+            "category": "annotation",
+            "purpose": "Get an annotation attribute value",
+            "signature": "List<StringItem> getAnnoAttr(ClassItem c, String annotation, String attr) | List<StringItem> getAnnoAttr(ClassItem c, MethodItem m, String annotation, String attr)",
+            "return": "List<StringItem>"
+        },
+        {
+            "name": "getAnnoAttrNames()",
+            "category": "annotation",
+            "purpose": "Get the set of annotation attribute names",
+            "signature": "List<StringItem> getAnnoAttrNames(ClassItem c, String anno)",
+            "return": "List<StringItem>"
+        },
+        {
+            "name": "getAnnotated()",
+            "category": "annotation",
+            "purpose": "Get elements annotated with a given annotation",
+            "signature": "List<AnnotatedItem>|List<ClassItem> getAnnotated(String annotation, String entityType)",
+            "return": "List<AnnotatedItem>|List<ClassItem>"
+        },
+        {
+            "name": "hasAnnotation()",
+            "category": "annotation",
+            "purpose": "Check whether an element has a given annotation",
+            "signature": "BooleanItem hasAnnotation(ClassItem c, String annotation) | BooleanItem hasAnnotation(MethodItem m, String annotation)",
+            "return": "BooleanItem"
+        },
+        {
+            "name": "hasAnnoAttr()",
+            "category": "annotation",
+            "purpose": "Check whether an annotation attribute exists",
+            "signature": "BooleanItem hasAnnoAttr(ClassItem classItem, String annotation, String attr)",
+            "return": "BooleanItem"
+        },
+        {
+            "name": "elementExists()",
+            "category": "xml",
+            "purpose": "Check whether an XML element exists",
+            "signature": "BooleanItem elementExists(XMLItem xml, String selector)",
+            "return": "BooleanItem"
+        },
+        {
+            "name": "getAttr()",
+            "category": "xml",
+            "purpose": "Get an XML attribute value",
+            "signature": "StringItem getAttr(XMLItem node, String attrName)",
+            "return": "StringItem"
+        },
+        {
+            "name": "getAttrs()",
+            "category": "xml",
+            "purpose": "Get a set of XML attributes",
+            "signature": "List<StringItem> getAttrs(XMLItem node, String suffix)",
+            "return": "List<StringItem>"
+        },
+        {
+            "name": "getElms()",
+            "category": "xml",
+            "purpose": "Get a set of XML elements",
+            "signature": "List<XMLItem> getElms(XMLItem xml, String selector)",
+            "return": "List<XMLItem>"
+        },
+        {
+            "name": "getXMLs()",
+            "category": "xml",
+            "purpose": "Get XML documents/fragments",
+            "signature": "List<XMLItem> getXMLs()",
+            "return": "List<XMLItem>"
+        },
+        {
+            "name": "hasAttr()",
+            "category": "xml",
+            "purpose": "Check whether an XML attribute exists",
+            "signature": "BooleanItem hasAttr(XMLItem node, String attrName)",
+            "return": "BooleanItem"
+        },
+        {
+            "name": "endsWith()",
+            "category": "misc",
+            "purpose": "Check whether a string ends with a suffix",
+            "signature": "BooleanItem endsWith(String str, String suffix)",
+            "return": "BooleanItem"
+        },
+        {
+            "name": "isEmpty()",
+            "category": "misc",
+            "purpose": "Check whether a string/collection is empty",
+            "signature": "BooleanItem isEmpty(List list) | BooleanItem isEmpty(String item) | BooleanItem isEmpty(ClassItem classItem)",
+            "return": "BooleanItem"
+        },
+        {
+            "name": "indexOf()",
+            "category": "misc",
+            "purpose": "Return the index of a substring/element",
+            "signature": "IntegerItem indexOf(String str, String search)",
+            "return": "IntegerItem"
+        },
+        {
+            "name": "join()",
+            "category": "misc",
+            "purpose": "Join/concatenate values",
+            "signature": "List join(List<List> lists)",
+            "return": "List"
+        },
+        {
+            "name": "pathExists()",
+            "category": "misc",
+            "purpose": "Check whether a filesystem/project path exists",
+            "signature": "BooleanItem pathExists(String path)",
+            "return": "BooleanItem"
+        },
+        {
+            "name": "substring()",
+            "category": "misc",
+            "purpose": "Extract a substring",
+            "signature": "StringItem subString(String str, int st) | StringItem subString(String str, int st, int en)",
+            "return": "StringItem"
+        },
+        {
+            "name": "startsWith()",
+            "category": "misc",
+            "purpose": "Check whether a string starts with a prefix",
+            "signature": "BooleanItem startsWith(String str, String prefix)",
+            "return": "BooleanItem"
+        },
+        {
+            "name": "upperCase()",
+            "category": "misc",
+            "purpose": "Convert a string to upper case",
+            "signature": "StringItem upperCase(String str)",
+            "return": "StringItem"
+        },
+        {
+            "name": "getArgCount()",
+            "category": "code",
+            "purpose": "Get the number of arguments for a method",
+            "signature": "IntegerItem getArgCount(MethodItem methodItem)",
+            "return": "IntegerItem"
+        },
+        {
+            "name": "hasDuplicateBeans()",
+            "category": "xml",
+            "purpose": "Check if there are multiple beans for the same class",
+            "signature": "BooleanItem hasDuplicateBeans(XMLItem xmlItem)",
+            "return": "BooleanItem"
+        },
+        {
+            "name": "objectCreated()",
+            "category": "code",
+            "purpose": "Check if the constructor was used to create any object",
+            "signature": "BooleanItem objectCreated(ClassItem c, String constructor)",
+            "return": "BooleanItem"
+        },
+        {
+            "name": "importsClass()",
+            "category": "code",
+            "purpose": "Check if a class imports another class",
+            "signature": "BooleanItem importsClass(ClassItem classItem, String classToCheck)",
+            "return": "BooleanItem"
+        },
+        {
+            "name": "extendsClass()",
+            "category": "code",
+            "purpose": "Check if a class extends another class",
+            "signature": "BooleanItem extendsClass(ClassItem classItem, String classToCheck)",
+            "return": "BooleanItem"
+        }
+    ]
+}
