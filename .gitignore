@@ -1,0 +1,4 @@
+venv/
+.embold/
+dump/
+.env
